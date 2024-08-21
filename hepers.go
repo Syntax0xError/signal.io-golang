@@ -12,7 +12,7 @@ import (
 // IndexOf returns the index of the Client with the given connectionId, or -1 if not found
 func IndexOf(connectionId string, roomClients []Client) int {
 	for i, client := range roomClients {
-		if client.connectionId == connectionId {
+		if client.ConnectionId == connectionId {
 			return i
 		}
 	}

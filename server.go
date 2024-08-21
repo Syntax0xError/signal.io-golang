@@ -58,20 +58,20 @@ func (socket *signalIO) GetTotalConnections() int {
 func createClient(ws *websocket.Conn, r *http.Request) (Client, error) {
 	r.URL.Query()
 	client := Client{
-		connectionId: CreateConnectionId(),
-		socket:       ws,
-		request:      r,
+		ConnectionId: CreateConnectionId(),
+		Socket:       ws,
+		HTTPRequest:  r,
 	}
 	queryParams := r.URL.Query()
 
-	client.auth = queryParams.Get("auth")
+	client.Auth = queryParams.Get("auth")
 
 	queryData := queryParams.Get("queryData")
 	query, err := DecodeQueryData(queryData)
 	if err != nil {
 		return client, err
 	}
-	client.query = query
+	client.Query = query
 
 	return client, nil
 }
@@ -111,7 +111,7 @@ func (socket *signalIO) cleanup(connectionId string) {
 func (socket *signalIO) removeConnection(connectionId string) {
 	count := len(socket.connections)
 	for index, client := range socket.connections {
-		if client.connectionId == connectionId {
+		if client.ConnectionId == connectionId {
 			// remove connection
 			socket.connections[index] = socket.connections[count-1]
 			socket.connections = socket.connections[:count-1]
@@ -131,7 +131,7 @@ func (socket *signalIO) onConnect(client Client) {
 }
 
 func (socket *signalIO) onDisconnect(client Client) {
-	socket.removeConnection(client.connectionId)
+	socket.removeConnection(client.ConnectionId)
 	onDisconnect := socket.listeners["disconnect"]
 	if onDisconnect != nil {
 		onDisconnect(nil, client)
@@ -139,7 +139,7 @@ func (socket *signalIO) onDisconnect(client Client) {
 }
 
 func (socket *signalIO) onError(client Client, err error) {
-	socket.removeConnection(client.connectionId)
+	socket.removeConnection(client.ConnectionId)
 	onError := socket.listeners["error"]
 	if onError != nil {
 		onError(err, client)
@@ -203,7 +203,7 @@ func (client *Client) Emit(eventName string, payload Payload) error {
 	}
 
 	// Send the message to the client
-	err = client.socket.WriteMessage(websocket.TextMessage, messageJSON)
+	err = client.Socket.WriteMessage(websocket.TextMessage, messageJSON)
 	if err != nil {
 		log.Printf("WriteMessage error: %v", err)
 		return err
@@ -224,7 +224,7 @@ func (socket *signalIO) JoinRoom(roomId string, client Client) {
 		return
 	}
 
-	if IndexOf(client.connectionId, socket.rooms[roomId]) != -1 {
+	if IndexOf(client.ConnectionId, socket.rooms[roomId]) != -1 {
 		return
 	}
 

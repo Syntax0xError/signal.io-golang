@@ -26,9 +26,9 @@ type signalIO struct {
 }
 
 type Client struct {
-	connectionId string
-	auth         string
-	query        map[string]string
-	socket       *websocket.Conn
-	request      *http.Request
+	ConnectionId string
+	Auth         string
+	Query        map[string]string
+	Socket       *websocket.Conn
+	HTTPRequest  *http.Request
 }
