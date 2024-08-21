@@ -148,3 +148,38 @@ socket.On("broadcastToRoom", func(roomId string, message string, payload signal.
 })
 ```
 This method allows you to broadcast messages to all clients within a specific room or group, making it easy to send updates or notifications to multiple clients simultaneously.
+
+## Donations and Sponsorships
+
+If you find this library useful and want to support its ongoing development, you can contribute through donations or sponsorships. Your support helps me maintain and improve the library, add new features, and provide better support to the community.
+
+### How to Donate
+
+You can make a donation via the following platforms:
+
+- **[GitHub Sponsors](https://github.com/sponsors/Syntax0xError)**: Support me directly through GitHub Sponsors. Contributions on GitHub help me fund development and cover project costs.
+- **Cryptocurrency**: You can also support me through cryptocurrency. If you prefer to donate this way, you can use the following wallet addresses:
+
+  - **Binance Coin (BNB):** `0x1E9890ac2f04F0B446D16ad1A26519c0a9535938` (BNB Chain network assets)
+  - **Bitcoin (BTCB):** `0x1E9890ac2f04F0B446D16ad1A26519c0a9535938` (BNB Chain network assets)
+  - **Ethereum (ETH):** `0x1E9890ac2f04F0B446D16ad1A26519c0a9535938` (BNB Chain network assets)
+
+### Sponsorship Opportunities
+
+We also offer sponsorship opportunities for organizations and businesses interested in supporting our work. As a sponsor, you can benefit from:
+
+- **Prominent Recognition:** Your company's name and logo will be featured on our GitHub repository and project website.
+- **Priority Support:** Receive priority support and dedicated assistance for integrating and using the library.
+- **Custom Features:** Request custom features or enhancements tailored to your organization's needs.
+
+For more information about sponsorship opportunities and benefits, please contact me at [oussemamri2013@gmail.com](mailto:oussemamri2013@gmail.com)
+
+### Why Support Me?
+
+Contributions and sponsorships help me to:
+
+- **Improve the Library:** Develop new features, fix bugs, and enhance performance.
+- **Provide Better Support:** Offer timely support and resolve issues more efficiently.
+- **Maintain the Project:** Cover costs associated with hosting, development, and maintenance.
+
+Thank you for considering supporting our project. Your contributions make a significant difference!
